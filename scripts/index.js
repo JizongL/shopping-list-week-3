@@ -11,7 +11,15 @@
 //   });
 // });
 
-api.getItems()
-  .then(res => res.json())
-  .then(resJson =>console.log(resJson));
 
+api.createItem('dragon')
+  .then(res => res.json())
+  .then((newItem) => {
+    return api.getItems();
+  })
+  .then(res => res.json())
+  .then(((items) => {
+    console.log('testing',items);
+  }));
+
+  
